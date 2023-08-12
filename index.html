@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Submission</title>
+</head>
+<body>
+    <h1><button onclick="">Get all pro</button></h1>
+    <form id="myForm">
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="description" placeholder="description">
+        <input type="text" name="link" placeholder="link">
+        <input type="text" name="prolink" placeholder="prolink">
+        <button type="submit">Create pro</button>
+    </form>
+<script>
+    const apiUrl = "http://127.0.0.1:3000/api/pf";
+
+async function fetchData() {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        console.log("Fetched Data:", data);
+    } catch (error) {
+        console.error("API Error:", error);
+    }
+}
+
+fetchData();
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- 
+document.getElementById("myForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const formData = new FormData(event.target); // Get form data
+    const formDataObject = {};
+
+    formData.forEach((value, key) => {
+        formDataObject[key] = value;
+    });
+    console.log(formDataObject)
+    const apiUrl = "http://127.0.0.1:3000/api/pf";
+    const requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formDataObject)
+    };
+
+    try {
+        const response = await fetch(apiUrl, requestOptions);
+        const responseData = await response.json();
+        console.log("API Response:", responseData);
+    } catch (error) {
+        console.error("API Error:", error);
+    }
+}); -->
