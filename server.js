@@ -3,17 +3,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Book = require('./models/projects');
-
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(cors)
+const uri= process.env.LOCAL_URI 
+app.use(cors())
 app.use(bodyParser.json());
-const uri="mongodb+srv://simran:rohit776@cluster0.8t0hk4y.mongodb.net/rohitdbs"
 // Connect to the MongoDB database
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(console.log("db on hii !"))
+}).then(console.log("db on !")).catch(e=>{console.log(e)})
 
 // Define API routes
 const bookRoutes = require('./routes/pRoutes');
