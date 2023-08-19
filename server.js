@@ -7,9 +7,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-const uri= process.env.LOCAL_URI 
+const uri= "mongodb+srv://"+process.env.URI_PASS+"@cluster0.8t0hk4y.mongodb.net/"+process.env.DATABASE
+console.log(uri)
+console.log(PORT)
 app.use(cors())
 app.use(bodyParser.json());
+
+
 // Connect to the MongoDB database
 mongoose.connect(uri, {
   useNewUrlParser: true,
