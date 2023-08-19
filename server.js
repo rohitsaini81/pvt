@@ -14,11 +14,11 @@ app.use(bodyParser.json());
 
 
 // Connect to the MongoDB database
-mongoose.connect(uri, {
+const  dbcon=async()=>{await mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(console.log("db on !")).catch(e=>{console.log(e)})
-
+}).then(console.log("db on !")).catch(e=>{console.log(e)})}
+dbcon();
 // Define API routes
 const bookRoutes = require('./routes/pRoutes');
 app.use('/api/pf/', bookRoutes);
