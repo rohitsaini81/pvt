@@ -7,6 +7,7 @@ const dotenv = require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const uri= `mongodb+srv://${process.env.URI_PASS}@cluster0.8t0hk4y.mongodb.net/${process.env.DATABASE}`
+console.log(uri)
 console.log(process.env)
 app.use(cors())
 app.use(bodyParser.json());
